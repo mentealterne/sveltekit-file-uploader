@@ -1,7 +1,7 @@
 <script>
-	import ResourceForm from '$lib/client/components/ResourceForm.svelte';
-	const data = $props()
-	console.log(data);
+	import ResourceForm from '$lib/components/ResourceForm.svelte';
+	let { data } = $props()
 </script>
 
-<ResourceForm  />
+
+<ResourceForm data={data.form} action="?/create"  />

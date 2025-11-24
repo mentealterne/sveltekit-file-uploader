@@ -59,3 +59,14 @@ export const providers = [
 		name:"Skilla"
 	}
 ]
+
+export const roles = [
+	{
+		id:1,
+		name:"Mentor/Coach"
+	},
+	{
+		id:2,
+		name:"Mentee / Coachee"
+	}
+]
