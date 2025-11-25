@@ -1,7 +1,7 @@
 <script lang="ts">
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.svg';
-	import MainNav from '$lib/components/composed/MainNav.svelte';
+	import MainNav from '$lib/components/composed/main-nav.svelte';
 	import { Toaster } from '$lib/components/ui/sonner/index.js';
 
 	let { children } = $props();

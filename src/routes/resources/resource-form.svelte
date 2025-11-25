@@ -1,10 +1,10 @@
 <script lang="ts">
-	import BaseSelect from '$lib/components/composed/BaseSelect.svelte';
+	import BaseSelect from '$lib/components/composed/base-select.svelte';
 	import { fileProxy, type Infer, superForm, type SuperValidated } from 'sveltekit-superforms';
 	import { resourceSchema, type ResourceSchema } from '$lib/schemas/resource.schema';
 	import { zod4Client } from 'sveltekit-superforms/adapters';
 	import Input from '../../lib/components/ui/input/input.svelte';
-	import MultipleSelect from '$lib/components/composed/MultipleSelect.svelte';
+	import MultipleSelect from '$lib/components/composed/multiple-select.svelte';
 	import * as Form from '$lib/components/ui/form';
 	import { toast } from 'svelte-sonner';
 

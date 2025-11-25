@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { columns } from './resourceTable.columns.js';
-	import DataTable from '$lib/components/composed/DataTable.svelte';
+	import DataTable from '$lib/components/composed/data-table.svelte';
 	import type { ResourceWithRelations } from '$lib/types/resource';
 
 	interface Props {

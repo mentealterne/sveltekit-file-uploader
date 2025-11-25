@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { FileX } from 'phosphor-svelte';
-	import BaseButton from '$lib/components/composed/BaseButton.svelte';
+	import BaseButton from '$lib/components/composed/base-button.svelte';
 
 	export let data;
 

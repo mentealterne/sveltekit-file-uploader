@@ -1,8 +1,8 @@
 import type { ColumnDef } from '@tanstack/table-core';
 import type { ResourceWithRelations } from '$lib/types/resource';
 import { renderComponent } from '$lib/components/ui/data-table';
-import BaseButton from '$lib/components/composed/BaseButton.svelte';
-import BaseBadge from '$lib/components/composed/BaseBadge.svelte';
+import BaseButton from '$lib/components/composed/base-button.svelte';
+import BaseBadge from '$lib/components/composed/base-badge.svelte';
 
 export const columns: ColumnDef<ResourceWithRelations>[] = [
 	{

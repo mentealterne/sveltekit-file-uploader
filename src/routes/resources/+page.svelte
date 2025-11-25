@@ -1,7 +1,7 @@
 <script>
-	import ResourceTable from './ResourceTable.svelte';
-	import ResourceFormDialog from './ResourceFormDialog.svelte';
-	import ResourceTableFilters from './ResourceTableFilters.svelte';
+	import ResourceTable from './resource-table.svelte';
+	import ResourceFormDialog from './resource-form-dialog.svelte';
+	import ResourceTableFilters from './resource-table-filters.svelte';
 
 	let { data } = $props();
 </script>

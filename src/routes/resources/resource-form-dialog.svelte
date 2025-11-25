@@ -21,9 +21,8 @@
 	<Dialog.Content class="w-1/2">
 		<Dialog.Header>
 			<Dialog.Title>Upload resource</Dialog.Title>
-
 		</Dialog.Header>
-		{#await import('./ResourceForm.svelte') then { default: ResourceForm }}
+		{#await import('./resource-form.svelte') then { default: ResourceForm }}
 			<ResourceForm data={data} />
 		{/await}
 	</Dialog.Content>
