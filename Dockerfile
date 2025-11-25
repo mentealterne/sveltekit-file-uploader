@@ -1,6 +1,12 @@
 
 FROM node:24-alpine AS base
 
+ENV DATABASE_URL="postgres://postgres:postgres@db:5432/postgres"
+ENV AWS_REGION=""
+ENV AWS_ACCESS_KEY_ID=""
+ENV AWS_SECRET_ACCESS_KEY=""
+ENV BUCKET_NAME=""
+
 RUN corepack enable && corepack prepare pnpm@9.0.0 --activate
 
 RUN apk add --no-cache openssl
