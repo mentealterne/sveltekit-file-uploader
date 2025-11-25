@@ -6,7 +6,12 @@ const config = {
 	// Consult https://svelte.dev/docs/kit/integrations
 	// for more information about preprocessors
 	preprocess: vitePreprocess(),
-	kit: { adapter: adapter() }
+	kit: {
+		adapter: adapter(),
+		alias: {
+			'prisma-generated': 'src/generated/prisma'
+		}
+	}
 };
 
 export default config;

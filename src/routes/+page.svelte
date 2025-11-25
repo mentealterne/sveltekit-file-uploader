@@ -1,7 +1,9 @@
 <script>
-	import ResourceForm from '$lib/components/ResourceForm.svelte';
-	let { data } = $props()
+	let { data } = $props();
+
 </script>
 
+{#await import('$lib/components/ResourceForm.svelte') then { default: ResourceForm }}
+	<ResourceForm action="?/create" data={data.form} />
+{/await}
 
-<ResourceForm data={data.form} action="?/create"  />
