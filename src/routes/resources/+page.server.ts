@@ -1,14 +1,24 @@
 import { message, setError, superValidate } from 'sveltekit-superforms';
 import { zod4 } from 'sveltekit-superforms/adapters';
 import { resourceSchema } from '$lib/schemas/resource.schema';
-import { fail, json } from '@sveltejs/kit';
+import { fail } from '@sveltejs/kit';
 import { FileUploader } from '$lib/server/FileUploader';
-import prisma from '$lib/prisma';
 import { ResourceRepo } from '$lib/server/repos/resource.repo';
 
 export const load = async () => {
 	const form = await superValidate(zod4(resourceSchema));
-	return { form };
+
+	try {
+		const resources = await ResourceRepo.list();
+		return { form, resources };
+	} catch (error) {
+		console.error('Error loading resources:', error);
+		return {
+			form,
+			resources: [],
+			error: 'Failed to load resources'
+		};
+	}
 };
 
 export const actions = {

@@ -3,22 +3,35 @@
 	import { fileProxy, type Infer, superForm, type SuperValidated } from 'sveltekit-superforms';
 	import { resourceSchema, type ResourceSchema } from '$lib/schemas/resource.schema';
 	import { zod4Client } from 'sveltekit-superforms/adapters';
-	import Input from './ui/input/input.svelte';
+	import Input from '../../lib/components/ui/input/input.svelte';
 	import MultipleSelect from '$lib/components/composed/MultipleSelect.svelte';
 	import * as Form from '$lib/components/ui/form';
+	import { toast } from 'svelte-sonner';
+
 	import {
 		useFetchCategories,
 		useFetchLanguages,
 		useFetchProviders,
 		useFetchRoles
-	} from '$lib/client/queryClient.svelte';
+	} from '$lib/client/queryClient.svelte.js';
+	import { buttonVariants } from '$lib/components/ui/button';
+	import { formDialogState } from './formDialogState.svelte';
 
 	let { data, action }: { data: SuperValidated<Infer<ResourceSchema>>, action: string } = $props();
 	const form = superForm(data, {
-		validators: zod4Client(resourceSchema)
+		validators: zod4Client(resourceSchema),
+		onResult: ({ result }) => {
+			if (result.type === 'success') {
+				form.reset();
+				toast.success('Resource created successfully');
+				formDialogState.isOpen = false;
+			} else if (result.type === 'failure') {
+				toast.error(`Resource creation failed with ${result.status}`);
+			}
+		}
 	});
 
-	const { form: formData, enhance, message, submitting } = form;
+	const { form: formData, enhance, submitting } = form;
 	const file = fileProxy(form, 'resourceFile');
 
 	const categoriesRes = useFetchCategories();
@@ -26,14 +39,12 @@
 	const providersReq = useFetchProviders();
 	const rolesReq = useFetchRoles();
 
+
 </script>
-{#if $message}
-	<p class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
-		{$message}
-	</p>
-{/if}
-<form action={action} class="space-y-6" enctype="multipart/form-data" method="POST" use:enhance>
-	<div class="flex flex-col gap-4">
+
+<form action={action} class="space-y-6 flex flex-col " enctype="multipart/form-data" method="POST"
+			use:enhance>
+	<div class="flex flex-col gap-4 justify-end">
 		<Form.Field {form} name="title">
 			<Form.Control>
 				<Input bind:value={$formData.title} name="title" placeholder="Title" required />
@@ -91,5 +102,7 @@
 			<Form.FieldErrors />
 		</Form.Field>
 	</div>
-	<Form.Button disabled={$submitting}>Upload</Form.Button>
+	<div class="flex justify-end">
+		<Form.Button class={buttonVariants({ variant: "primary" })} disabled={$submitting}>Upload</Form.Button>
+	</div>
 </form>
