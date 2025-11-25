@@ -45,8 +45,7 @@ export const actions = {
 			const upload = await FileUploader.send(key, resourceFile, resourceFile.type);
 
 			if (!upload.success) {
-				setError(form, 'resourceFile', `File upload failed: ${upload.error}`);
-				return;
+				return setError(form, 'resourceFile', `File upload failed: ${upload.error}`);
 			}
 
 			await ResourceRepo.create({
@@ -67,11 +66,10 @@ export const actions = {
 					connect: form.data.roles.map((roleId) => ({ id: roleId }))
 				}
 			});
+			return message(form, 'Resource created successfully!');
 		} catch (error) {
 			console.error('Resource creation error:', error);
 			return setError(form, 'resourceFile', 'An error occurred while creating the resource.');
 		}
-
-		return message(form, 'Resource created successfully!');
 	}
 };
