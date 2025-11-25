@@ -84,7 +84,6 @@ export const FileUploader = {
 		if (!result.Body) throw new Error('File not found');
 		const bytes = await result.Body.transformToByteArray();
 
-		const base64 = Buffer.from(bytes).toString('base64');
-		return base64;
+		return Buffer.from(bytes).toString('base64');
 	}
 };

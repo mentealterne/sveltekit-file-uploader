@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa034e57-b021-446d-bcf4-a2f470175dfc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile.builder" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/schemas/resource.schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/schemas/resource.schema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/server/FileUploader.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/server/FileUploader.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
