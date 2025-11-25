@@ -28,6 +28,7 @@
 			} else if (result.type === 'failure') {
 				toast.error(`Resource creation failed with ${result.status}`);
 			}
+
 		}
 	});
 

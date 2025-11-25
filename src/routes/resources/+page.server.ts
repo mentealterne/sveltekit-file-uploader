@@ -34,22 +34,21 @@ export const actions = {
 		const formData = await request.formData();
 		const resourceFile = formData.get('resourceFile') as File;
 		const form = await superValidate(formData, zod4(resourceSchema));
-
-		if (!form.valid) {
-			return fail(400, { message: 'Form validation failed' });
-		}
-
-		const ext = resourceFile.name.split('.').pop();
-		const key = `uploads/${crypto.randomUUID()}.${ext}`;
-
-		const upload = await FileUploader.send(key, resourceFile, resourceFile.type);
-
-		if (!upload.success) {
-			setError(form, 'resourceFile', `File upload failed: ${upload.error}`);
-			return;
-		}
-
 		try {
+			if (!form.valid) {
+				return fail(400, { message: 'Form validation failed' });
+			}
+
+			const ext = resourceFile.name.split('.').pop();
+			const key = `uploads/${crypto.randomUUID()}.${ext}`;
+
+			const upload = await FileUploader.send(key, resourceFile, resourceFile.type);
+
+			if (!upload.success) {
+				setError(form, 'resourceFile', `File upload failed: ${upload.error}`);
+				return;
+			}
+
 			await ResourceRepo.create({
 				title: form.data.title,
 				description: form.data.description,
@@ -70,7 +69,7 @@ export const actions = {
 			});
 		} catch (error) {
 			console.error('Resource creation error:', error);
-			return fail(500, { message: 'An error occurred while creating the resource.' });
+			return setError(form, 'resourceFile', 'An error occurred while creating the resource.');
 		}
 
 		return message(form, 'Resource created successfully!');
