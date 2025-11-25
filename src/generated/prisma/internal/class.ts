@@ -17,8 +17,8 @@ import type * as Prisma from "./prismaNamespace.ts"
 
 const config: runtime.GetPrismaClientConfig = {
   "previewFeatures": [],
-  "clientVersion": "7.0.0",
-  "engineVersion": "0c19ccc313cf9911a90d99d2ac2eb0280c76c513",
+  "clientVersion": "7.0.1",
+  "engineVersion": "f09f2815f091dbba658cdcd2264306d88bb5bda6",
   "activeProvider": "postgresql",
   "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client\"\n  output   = \"../src/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n}\n\nmodel Resource {\n  id          String   @id @default(uuid())\n  createdAt   DateTime @default(now())\n  updatedAt   DateTime @updatedAt\n  title       String\n  description String\n  category    Category @relation(fields: [categoryId], references: [id])\n  language    Language @relation(fields: [languageId], references: [id])\n  provider    Provider @relation(fields: [providerId], references: [id])\n  fileUrl     String\n  fileType    String\n  categoryId  String\n  languageId  String\n  providerId  String\n  roles       Role[]\n}\n\nmodel Category {\n  id       String     @id @default(uuid())\n  name     String     @unique\n  resource Resource[]\n}\n\nmodel Language {\n  id       String     @id @default(uuid())\n  code     String     @unique\n  name     String\n  resource Resource[]\n}\n\nmodel Provider {\n  id       String     @id @default(uuid())\n  name     String     @unique\n  resource Resource[]\n}\n\nmodel Role {\n  id        String     @id @default(uuid())\n  name      String     @unique\n  resources Resource[]\n}\n",
   "runtimeDataModel": {
