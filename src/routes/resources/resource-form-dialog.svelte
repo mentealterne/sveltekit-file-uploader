@@ -12,6 +12,9 @@
 	let { data }: Props = $props();
 
 </script>
+{#if data.message}
+	<p class="text-red-500 font-medium">{data.message}</p>
+{/if}
 
 <Dialog.Root bind:open={formDialogState.isOpen}>
 	<Dialog.Trigger class={buttonVariants({ variant: "primary" })}

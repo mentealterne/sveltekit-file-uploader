@@ -36,7 +36,7 @@ export const actions = {
 		const form = await superValidate(formData, zod4(resourceSchema));
 
 		if (!form.valid) {
-			return fail(400, { form });
+			return fail(400, { message: 'Form validation failed' });
 		}
 
 		const ext = resourceFile.name.split('.').pop();
@@ -70,7 +70,7 @@ export const actions = {
 			});
 		} catch (error) {
 			console.error('Resource creation error:', error);
-			return fail(500, { form, message: 'An error occurred while creating the resource.' });
+			return fail(500, { message: 'An error occurred while creating the resource.' });
 		}
 
 		return message(form, 'Resource created successfully!');

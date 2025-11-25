@@ -6,6 +6,7 @@
 	let { data } = $props();
 </script>
 
+
 <div class="flex flex-col gap-4 bg-white p-4 rounded-md shadow-lg">
 	<div class="flex justify-between space-between w-full">
 		<ResourceTableFilters />
