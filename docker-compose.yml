@@ -5,13 +5,12 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        DATABASE_URL: postgres://postgres:postgres@db:5432/postgres
+        ORIGIN: http://localhost:3000
     container_name: pack-file-uploader
     env_file:
       - .env
-    environment:
-      NODE_ENV: production
-      DATABASE_URL: postgres://postgres:postgres@db:5432/postgres
-      ORIGIN: http://localhost:3000
     ports:
       - "3000:3000"
     depends_on:

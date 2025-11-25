@@ -1,6 +1,9 @@
 
 FROM node:24-alpine AS base
-
+ARG DATABASE_URL
+ENV DATABASE_URL=${DATABASE_URL}
+ARG ORIGIN
+ENV ORIGIN=${ORIGIN}
 
 RUN corepack enable && corepack prepare pnpm@9.0.0 --activate
 
