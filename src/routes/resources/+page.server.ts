@@ -4,12 +4,20 @@ import { resourceSchema } from '$lib/schemas/resource.schema';
 import { fail } from '@sveltejs/kit';
 import { FileUploader } from '$lib/server/FileUploader';
 import { ResourceRepo } from '$lib/server/repos/resource.repo';
+import { getMimeTypesFromLabels } from '$lib/helpers/getMimeTypesFromLabel';
 
-export const load = async () => {
+export const load = async ({ url }: { url: URL }) => {
 	const form = await superValidate(zod4(resourceSchema));
-
+	const type = url.searchParams.get('type') ?? 'all';
+	const filteredMimeTypes = getMimeTypesFromLabels(type);
 	try {
-		const resources = await ResourceRepo.list();
+		const resources = await ResourceRepo.list(
+			filteredMimeTypes && {
+				OR: filteredMimeTypes.map((prefix) => ({
+					fileType: { startsWith: prefix }
+				}))
+			}
+		);
 		return { form, resources };
 	} catch (error) {
 		console.error('Error loading resources:', error);
@@ -46,6 +54,7 @@ export const actions = {
 				title: form.data.title,
 				description: form.data.description,
 				fileUrl: upload.data,
+				fileType: resourceFile.type,
 				category: {
 					connect: { id: form.data.category }
 				},

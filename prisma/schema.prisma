@@ -23,6 +23,7 @@ model Resource {
   language    Language @relation(fields: [languageId], references: [id])
   provider    Provider @relation(fields: [providerId], references: [id])
   fileUrl     String
+  fileType    String
   categoryId  String
   languageId  String
   providerId  String

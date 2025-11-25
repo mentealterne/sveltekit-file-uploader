@@ -31,6 +31,7 @@ export type ResourceMinAggregateOutputType = {
   title: string | null
   description: string | null
   fileUrl: string | null
+  fileType: string | null
   categoryId: string | null
   languageId: string | null
   providerId: string | null
@@ -43,6 +44,7 @@ export type ResourceMaxAggregateOutputType = {
   title: string | null
   description: string | null
   fileUrl: string | null
+  fileType: string | null
   categoryId: string | null
   languageId: string | null
   providerId: string | null
@@ -55,6 +57,7 @@ export type ResourceCountAggregateOutputType = {
   title: number
   description: number
   fileUrl: number
+  fileType: number
   categoryId: number
   languageId: number
   providerId: number
@@ -69,6 +72,7 @@ export type ResourceMinAggregateInputType = {
   title?: true
   description?: true
   fileUrl?: true
+  fileType?: true
   categoryId?: true
   languageId?: true
   providerId?: true
@@ -81,6 +85,7 @@ export type ResourceMaxAggregateInputType = {
   title?: true
   description?: true
   fileUrl?: true
+  fileType?: true
   categoryId?: true
   languageId?: true
   providerId?: true
@@ -93,6 +98,7 @@ export type ResourceCountAggregateInputType = {
   title?: true
   description?: true
   fileUrl?: true
+  fileType?: true
   categoryId?: true
   languageId?: true
   providerId?: true
@@ -178,6 +184,7 @@ export type ResourceGroupByOutputType = {
   title: string
   description: string
   fileUrl: string
+  fileType: string
   categoryId: string
   languageId: string
   providerId: string
@@ -211,6 +218,7 @@ export type ResourceWhereInput = {
   title?: Prisma.StringFilter<"Resource"> | string
   description?: Prisma.StringFilter<"Resource"> | string
   fileUrl?: Prisma.StringFilter<"Resource"> | string
+  fileType?: Prisma.StringFilter<"Resource"> | string
   categoryId?: Prisma.StringFilter<"Resource"> | string
   languageId?: Prisma.StringFilter<"Resource"> | string
   providerId?: Prisma.StringFilter<"Resource"> | string
@@ -227,6 +235,7 @@ export type ResourceOrderByWithRelationInput = {
   title?: Prisma.SortOrder
   description?: Prisma.SortOrder
   fileUrl?: Prisma.SortOrder
+  fileType?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
   languageId?: Prisma.SortOrder
   providerId?: Prisma.SortOrder
@@ -246,6 +255,7 @@ export type ResourceWhereUniqueInput = Prisma.AtLeast<{
   title?: Prisma.StringFilter<"Resource"> | string
   description?: Prisma.StringFilter<"Resource"> | string
   fileUrl?: Prisma.StringFilter<"Resource"> | string
+  fileType?: Prisma.StringFilter<"Resource"> | string
   categoryId?: Prisma.StringFilter<"Resource"> | string
   languageId?: Prisma.StringFilter<"Resource"> | string
   providerId?: Prisma.StringFilter<"Resource"> | string
@@ -262,6 +272,7 @@ export type ResourceOrderByWithAggregationInput = {
   title?: Prisma.SortOrder
   description?: Prisma.SortOrder
   fileUrl?: Prisma.SortOrder
+  fileType?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
   languageId?: Prisma.SortOrder
   providerId?: Prisma.SortOrder
@@ -280,6 +291,7 @@ export type ResourceScalarWhereWithAggregatesInput = {
   title?: Prisma.StringWithAggregatesFilter<"Resource"> | string
   description?: Prisma.StringWithAggregatesFilter<"Resource"> | string
   fileUrl?: Prisma.StringWithAggregatesFilter<"Resource"> | string
+  fileType?: Prisma.StringWithAggregatesFilter<"Resource"> | string
   categoryId?: Prisma.StringWithAggregatesFilter<"Resource"> | string
   languageId?: Prisma.StringWithAggregatesFilter<"Resource"> | string
   providerId?: Prisma.StringWithAggregatesFilter<"Resource"> | string
@@ -292,6 +304,7 @@ export type ResourceCreateInput = {
   title: string
   description: string
   fileUrl: string
+  fileType: string
   category: Prisma.CategoryCreateNestedOneWithoutResourceInput
   language: Prisma.LanguageCreateNestedOneWithoutResourceInput
   provider: Prisma.ProviderCreateNestedOneWithoutResourceInput
@@ -305,6 +318,7 @@ export type ResourceUncheckedCreateInput = {
   title: string
   description: string
   fileUrl: string
+  fileType: string
   categoryId: string
   languageId: string
   providerId: string
@@ -318,6 +332,7 @@ export type ResourceUpdateInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   fileUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  fileType?: Prisma.StringFieldUpdateOperationsInput | string
   category?: Prisma.CategoryUpdateOneRequiredWithoutResourceNestedInput
   language?: Prisma.LanguageUpdateOneRequiredWithoutResourceNestedInput
   provider?: Prisma.ProviderUpdateOneRequiredWithoutResourceNestedInput
@@ -331,6 +346,7 @@ export type ResourceUncheckedUpdateInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   fileUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  fileType?: Prisma.StringFieldUpdateOperationsInput | string
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   languageId?: Prisma.StringFieldUpdateOperationsInput | string
   providerId?: Prisma.StringFieldUpdateOperationsInput | string
@@ -344,6 +360,7 @@ export type ResourceCreateManyInput = {
   title: string
   description: string
   fileUrl: string
+  fileType: string
   categoryId: string
   languageId: string
   providerId: string
@@ -356,6 +373,7 @@ export type ResourceUpdateManyMutationInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   fileUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  fileType?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type ResourceUncheckedUpdateManyInput = {
@@ -365,6 +383,7 @@ export type ResourceUncheckedUpdateManyInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   fileUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  fileType?: Prisma.StringFieldUpdateOperationsInput | string
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   languageId?: Prisma.StringFieldUpdateOperationsInput | string
   providerId?: Prisma.StringFieldUpdateOperationsInput | string
@@ -377,6 +396,7 @@ export type ResourceCountOrderByAggregateInput = {
   title?: Prisma.SortOrder
   description?: Prisma.SortOrder
   fileUrl?: Prisma.SortOrder
+  fileType?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
   languageId?: Prisma.SortOrder
   providerId?: Prisma.SortOrder
@@ -389,6 +409,7 @@ export type ResourceMaxOrderByAggregateInput = {
   title?: Prisma.SortOrder
   description?: Prisma.SortOrder
   fileUrl?: Prisma.SortOrder
+  fileType?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
   languageId?: Prisma.SortOrder
   providerId?: Prisma.SortOrder
@@ -401,6 +422,7 @@ export type ResourceMinOrderByAggregateInput = {
   title?: Prisma.SortOrder
   description?: Prisma.SortOrder
   fileUrl?: Prisma.SortOrder
+  fileType?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
   languageId?: Prisma.SortOrder
   providerId?: Prisma.SortOrder
@@ -595,6 +617,7 @@ export type ResourceCreateWithoutCategoryInput = {
   title: string
   description: string
   fileUrl: string
+  fileType: string
   language: Prisma.LanguageCreateNestedOneWithoutResourceInput
   provider: Prisma.ProviderCreateNestedOneWithoutResourceInput
   roles?: Prisma.RoleCreateNestedManyWithoutResourcesInput
@@ -607,6 +630,7 @@ export type ResourceUncheckedCreateWithoutCategoryInput = {
   title: string
   description: string
   fileUrl: string
+  fileType: string
   languageId: string
   providerId: string
   roles?: Prisma.RoleUncheckedCreateNestedManyWithoutResourcesInput
@@ -648,6 +672,7 @@ export type ResourceScalarWhereInput = {
   title?: Prisma.StringFilter<"Resource"> | string
   description?: Prisma.StringFilter<"Resource"> | string
   fileUrl?: Prisma.StringFilter<"Resource"> | string
+  fileType?: Prisma.StringFilter<"Resource"> | string
   categoryId?: Prisma.StringFilter<"Resource"> | string
   languageId?: Prisma.StringFilter<"Resource"> | string
   providerId?: Prisma.StringFilter<"Resource"> | string
@@ -660,6 +685,7 @@ export type ResourceCreateWithoutLanguageInput = {
   title: string
   description: string
   fileUrl: string
+  fileType: string
   category: Prisma.CategoryCreateNestedOneWithoutResourceInput
   provider: Prisma.ProviderCreateNestedOneWithoutResourceInput
   roles?: Prisma.RoleCreateNestedManyWithoutResourcesInput
@@ -672,6 +698,7 @@ export type ResourceUncheckedCreateWithoutLanguageInput = {
   title: string
   description: string
   fileUrl: string
+  fileType: string
   categoryId: string
   providerId: string
   roles?: Prisma.RoleUncheckedCreateNestedManyWithoutResourcesInput
@@ -710,6 +737,7 @@ export type ResourceCreateWithoutProviderInput = {
   title: string
   description: string
   fileUrl: string
+  fileType: string
   category: Prisma.CategoryCreateNestedOneWithoutResourceInput
   language: Prisma.LanguageCreateNestedOneWithoutResourceInput
   roles?: Prisma.RoleCreateNestedManyWithoutResourcesInput
@@ -722,6 +750,7 @@ export type ResourceUncheckedCreateWithoutProviderInput = {
   title: string
   description: string
   fileUrl: string
+  fileType: string
   categoryId: string
   languageId: string
   roles?: Prisma.RoleUncheckedCreateNestedManyWithoutResourcesInput
@@ -760,6 +789,7 @@ export type ResourceCreateWithoutRolesInput = {
   title: string
   description: string
   fileUrl: string
+  fileType: string
   category: Prisma.CategoryCreateNestedOneWithoutResourceInput
   language: Prisma.LanguageCreateNestedOneWithoutResourceInput
   provider: Prisma.ProviderCreateNestedOneWithoutResourceInput
@@ -772,6 +802,7 @@ export type ResourceUncheckedCreateWithoutRolesInput = {
   title: string
   description: string
   fileUrl: string
+  fileType: string
   categoryId: string
   languageId: string
   providerId: string
@@ -805,6 +836,7 @@ export type ResourceCreateManyCategoryInput = {
   title: string
   description: string
   fileUrl: string
+  fileType: string
   languageId: string
   providerId: string
 }
@@ -816,6 +848,7 @@ export type ResourceUpdateWithoutCategoryInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   fileUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  fileType?: Prisma.StringFieldUpdateOperationsInput | string
   language?: Prisma.LanguageUpdateOneRequiredWithoutResourceNestedInput
   provider?: Prisma.ProviderUpdateOneRequiredWithoutResourceNestedInput
   roles?: Prisma.RoleUpdateManyWithoutResourcesNestedInput
@@ -828,6 +861,7 @@ export type ResourceUncheckedUpdateWithoutCategoryInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   fileUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  fileType?: Prisma.StringFieldUpdateOperationsInput | string
   languageId?: Prisma.StringFieldUpdateOperationsInput | string
   providerId?: Prisma.StringFieldUpdateOperationsInput | string
   roles?: Prisma.RoleUncheckedUpdateManyWithoutResourcesNestedInput
@@ -840,6 +874,7 @@ export type ResourceUncheckedUpdateManyWithoutCategoryInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   fileUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  fileType?: Prisma.StringFieldUpdateOperationsInput | string
   languageId?: Prisma.StringFieldUpdateOperationsInput | string
   providerId?: Prisma.StringFieldUpdateOperationsInput | string
 }
@@ -851,6 +886,7 @@ export type ResourceCreateManyLanguageInput = {
   title: string
   description: string
   fileUrl: string
+  fileType: string
   categoryId: string
   providerId: string
 }
@@ -862,6 +898,7 @@ export type ResourceUpdateWithoutLanguageInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   fileUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  fileType?: Prisma.StringFieldUpdateOperationsInput | string
   category?: Prisma.CategoryUpdateOneRequiredWithoutResourceNestedInput
   provider?: Prisma.ProviderUpdateOneRequiredWithoutResourceNestedInput
   roles?: Prisma.RoleUpdateManyWithoutResourcesNestedInput
@@ -874,6 +911,7 @@ export type ResourceUncheckedUpdateWithoutLanguageInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   fileUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  fileType?: Prisma.StringFieldUpdateOperationsInput | string
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   providerId?: Prisma.StringFieldUpdateOperationsInput | string
   roles?: Prisma.RoleUncheckedUpdateManyWithoutResourcesNestedInput
@@ -886,6 +924,7 @@ export type ResourceUncheckedUpdateManyWithoutLanguageInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   fileUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  fileType?: Prisma.StringFieldUpdateOperationsInput | string
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   providerId?: Prisma.StringFieldUpdateOperationsInput | string
 }
@@ -897,6 +936,7 @@ export type ResourceCreateManyProviderInput = {
   title: string
   description: string
   fileUrl: string
+  fileType: string
   categoryId: string
   languageId: string
 }
@@ -908,6 +948,7 @@ export type ResourceUpdateWithoutProviderInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   fileUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  fileType?: Prisma.StringFieldUpdateOperationsInput | string
   category?: Prisma.CategoryUpdateOneRequiredWithoutResourceNestedInput
   language?: Prisma.LanguageUpdateOneRequiredWithoutResourceNestedInput
   roles?: Prisma.RoleUpdateManyWithoutResourcesNestedInput
@@ -920,6 +961,7 @@ export type ResourceUncheckedUpdateWithoutProviderInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   fileUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  fileType?: Prisma.StringFieldUpdateOperationsInput | string
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   languageId?: Prisma.StringFieldUpdateOperationsInput | string
   roles?: Prisma.RoleUncheckedUpdateManyWithoutResourcesNestedInput
@@ -932,6 +974,7 @@ export type ResourceUncheckedUpdateManyWithoutProviderInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   fileUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  fileType?: Prisma.StringFieldUpdateOperationsInput | string
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   languageId?: Prisma.StringFieldUpdateOperationsInput | string
 }
@@ -943,6 +986,7 @@ export type ResourceUpdateWithoutRolesInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   fileUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  fileType?: Prisma.StringFieldUpdateOperationsInput | string
   category?: Prisma.CategoryUpdateOneRequiredWithoutResourceNestedInput
   language?: Prisma.LanguageUpdateOneRequiredWithoutResourceNestedInput
   provider?: Prisma.ProviderUpdateOneRequiredWithoutResourceNestedInput
@@ -955,6 +999,7 @@ export type ResourceUncheckedUpdateWithoutRolesInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   fileUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  fileType?: Prisma.StringFieldUpdateOperationsInput | string
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   languageId?: Prisma.StringFieldUpdateOperationsInput | string
   providerId?: Prisma.StringFieldUpdateOperationsInput | string
@@ -967,6 +1012,7 @@ export type ResourceUncheckedUpdateManyWithoutRolesInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   fileUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  fileType?: Prisma.StringFieldUpdateOperationsInput | string
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   languageId?: Prisma.StringFieldUpdateOperationsInput | string
   providerId?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1010,6 +1056,7 @@ export type ResourceSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   title?: boolean
   description?: boolean
   fileUrl?: boolean
+  fileType?: boolean
   categoryId?: boolean
   languageId?: boolean
   providerId?: boolean
@@ -1027,6 +1074,7 @@ export type ResourceSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exte
   title?: boolean
   description?: boolean
   fileUrl?: boolean
+  fileType?: boolean
   categoryId?: boolean
   languageId?: boolean
   providerId?: boolean
@@ -1042,6 +1090,7 @@ export type ResourceSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exte
   title?: boolean
   description?: boolean
   fileUrl?: boolean
+  fileType?: boolean
   categoryId?: boolean
   languageId?: boolean
   providerId?: boolean
@@ -1057,12 +1106,13 @@ export type ResourceSelectScalar = {
   title?: boolean
   description?: boolean
   fileUrl?: boolean
+  fileType?: boolean
   categoryId?: boolean
   languageId?: boolean
   providerId?: boolean
 }
 
-export type ResourceOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "createdAt" | "updatedAt" | "title" | "description" | "fileUrl" | "categoryId" | "languageId" | "providerId", ExtArgs["result"]["resource"]>
+export type ResourceOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "createdAt" | "updatedAt" | "title" | "description" | "fileUrl" | "fileType" | "categoryId" | "languageId" | "providerId", ExtArgs["result"]["resource"]>
 export type ResourceInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   category?: boolean | Prisma.CategoryDefaultArgs<ExtArgs>
   language?: boolean | Prisma.LanguageDefaultArgs<ExtArgs>
@@ -1096,6 +1146,7 @@ export type $ResourcePayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     title: string
     description: string
     fileUrl: string
+    fileType: string
     categoryId: string
     languageId: string
     providerId: string
@@ -1532,6 +1583,7 @@ export interface ResourceFieldRefs {
   readonly title: Prisma.FieldRef<"Resource", 'String'>
   readonly description: Prisma.FieldRef<"Resource", 'String'>
   readonly fileUrl: Prisma.FieldRef<"Resource", 'String'>
+  readonly fileType: Prisma.FieldRef<"Resource", 'String'>
   readonly categoryId: Prisma.FieldRef<"Resource", 'String'>
   readonly languageId: Prisma.FieldRef<"Resource", 'String'>
   readonly providerId: Prisma.FieldRef<"Resource", 'String'>

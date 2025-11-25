@@ -22,7 +22,7 @@
 	});
 </script>
 
-<div class="rounded-md border bg-white shadow-lg p-4 border-none">
+<div class="rounded-md border p-4 border-none">
 	<Table.Root>
 		<Table.Header>
 			{#each table.getHeaderGroups() as headerGroup (headerGroup.id)}

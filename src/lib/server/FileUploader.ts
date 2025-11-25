@@ -73,7 +73,7 @@ export const FileUploader = {
 		}
 	},
 
-	retrieveFile: async (key: string): Promise<Uint8Array> => {
+	retrieveFile: async (key: string): Promise<string> => {
 		const result = await client.send(
 			new GetObjectCommand({
 				Bucket: bucket,
@@ -82,13 +82,9 @@ export const FileUploader = {
 		);
 
 		if (!result.Body) throw new Error('File not found');
+		const bytes = await result.Body.transformToByteArray();
 
-		const chunks: Uint8Array[] = [];
-
-		for await (const chunk of result.Body as AsyncIterable<Uint8Array>) {
-			chunks.push(chunk);
-		}
-
-		return Uint8Array.from(chunks.flat());
+		const base64 = Buffer.from(bytes).toString('base64');
+		return base64;
 	}
 };

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import * as NavigationMenu from '$lib/components/ui/navigation-menu/index.js';
 	import logo from '$lib/assets/logo.png';
+	import { page } from '$app/state';
 
 	const links = [
 		{ href: '/', label: 'Dashboard' },
@@ -21,11 +22,10 @@
 			{#each links as link(link)}
 				<NavigationMenu.Item>
 
-					<NavigationMenu.Link>
-						<a href={link.href}
-							 class="text-lg  font-semibold text-gray-500 px-4 py-2 hover:border-b-2 hover:border-orange-400">
-							{link.label}
-						</a>
+					<NavigationMenu.Link href={link.href}
+															 class={["text-lg rounded-none  font-semibold text-gray-500 px-4 py-2 hover:border-b-2 hover:border-orange-400"
+															 , page.url.pathname === link.href && 'border-b-2 border-orange-400 text-gray-800']}>
+						{link.label}
 					</NavigationMenu.Link>
 				</NavigationMenu.Item>
 			{/each}

@@ -824,6 +824,7 @@ export const ResourceScalarFieldEnum = {
   title: 'title',
   description: 'description',
   fileUrl: 'fileUrl',
+  fileType: 'fileType',
   categoryId: 'categoryId',
   languageId: 'languageId',
   providerId: 'providerId'
