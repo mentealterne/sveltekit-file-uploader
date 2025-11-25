@@ -31,10 +31,11 @@ export const load = async ({ url }: { url: URL }) => {
 
 export const actions = {
 	create: async ({ request }: { request: Request }) => {
-		const formData = await request.formData();
-		const resourceFile = formData.get('resourceFile') as File;
-		const form = await superValidate(formData, zod4(resourceSchema));
 		try {
+			const formData = await request.formData();
+			const resourceFile = formData.get('resourceFile') as File;
+			const form = await superValidate(formData, zod4(resourceSchema));
+
 			if (!form.valid) {
 				return fail(400, { message: 'Form validation failed' });
 			}
@@ -69,7 +70,7 @@ export const actions = {
 			return message(form, 'Resource created successfully!');
 		} catch (error) {
 			console.error('Resource creation error:', error);
-			return setError(form, 'resourceFile', 'An error occurred while creating the resource.');
+			return fail(500, { message: 'Resource could not be created due to a server error' });
 		}
 	}
 };
