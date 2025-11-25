@@ -24,7 +24,7 @@
 
 		</Dialog.Header>
 		{#await import('./ResourceForm.svelte') then { default: ResourceForm }}
-			<ResourceForm action="?/create" data={data} />
+			<ResourceForm data={data} />
 		{/await}
 	</Dialog.Content>
 </Dialog.Root>

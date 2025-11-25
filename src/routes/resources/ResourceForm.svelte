@@ -17,7 +17,7 @@
 	import { buttonVariants } from '$lib/components/ui/button';
 	import { formDialogState } from './formDialogState.svelte';
 
-	let { data, action }: { data: SuperValidated<Infer<ResourceSchema>>, action: string } = $props();
+	let { data }: { data: SuperValidated<Infer<ResourceSchema>> } = $props();
 	const form = superForm(data, {
 		validators: zod4Client(resourceSchema),
 		onResult: ({ result }) => {
@@ -42,7 +42,7 @@
 
 </script>
 
-<form action={action} class="space-y-6 flex flex-col " enctype="multipart/form-data" method="POST"
+<form action="?/create" class="space-y-6 flex flex-col " enctype="multipart/form-data" method="POST"
 			use:enhance>
 	<div class="flex flex-col gap-4 justify-end">
 		<Form.Field {form} name="title">

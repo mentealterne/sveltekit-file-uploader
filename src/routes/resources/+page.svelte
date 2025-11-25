@@ -4,8 +4,6 @@
 	import ResourceTableFilters from './ResourceTableFilters.svelte';
 
 	let { data } = $props();
-
-
 </script>
 
 <div class="flex flex-col gap-4 bg-white p-4 rounded-md shadow-lg">
