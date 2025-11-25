@@ -24,7 +24,6 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY prisma ./prisma
 COPY prisma.config.ts ./prisma.config.ts
 
-RUN pnpx prisma generate
 
 RUN pnpm run build
 
