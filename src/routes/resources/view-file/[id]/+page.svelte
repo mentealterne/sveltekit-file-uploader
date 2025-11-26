@@ -5,6 +5,24 @@
 	export let data;
 
 	const src = `data:${data.mimeType};base64,${data.base64}`;
+	function downloadFile() {
+		if(!data.base64) return;
+		const byteCharacters = atob(data.base64);
+		const byteNumbers = new Array(byteCharacters.length);
+		for (let i = 0; i < byteCharacters.length; i++) {
+			byteNumbers[i] = byteCharacters.charCodeAt(i);
+		}
+
+		const byteArray = new Uint8Array(byteNumbers);
+		const blob = new Blob([byteArray], { type: data.mimeType });
+
+		const url = URL.createObjectURL(blob);
+		const a = document.createElement('a');
+		a.href = url;
+		a.download = data.resource?.title ?? 'file';
+		a.click();
+		URL.revokeObjectURL(url);
+	}
 </script>
 
 <div class="bg-white p-4 rounded shadow-lg flex flex-col gap-4">
@@ -38,6 +56,6 @@
 	{/if}
 
 	<div class="flex justify-center mt-4">
-		<BaseButton href={src} label="Download file" />
+		<BaseButton onClick={downloadFile} label="Download file" />
 	</div>
 </div>
